@@ -1,0 +1,13 @@
+2017-03-30T23:51:58,611 [main] DEBUG vladlitvin.parser.UnitParser - freeSMS="2000";
+2017-03-30T23:51:58,627 [main] DEBUG vladlitvin.parser.UnitParser - 2000
+2017-03-30T23:51:58,627 [main] DEBUG vladlitvin.parser.TariffParser - FOR_SMS[здесьдолжнабытьошибкаSMSPrice{withinNetwork="0.04";otherNetwork="0.07";otherCountry="1";}];
+2017-03-30T23:51:58,627 [main] DEBUG vladlitvin.parser.TariffParser - FOR_SMS[здесьдолжнабытьошибкаSMSPrice{withinNetwork="0.04";otherNetwork="0.07";otherCountry="1";}];
+2017-03-30T23:51:58,627 [main] WARN vladlitvin.parser.TariffParser - Error add Tariff. class by.epam.vladlitvin.parser.PriceParser Illegal data format in "findCallPrice" method. 
+2017-03-30T23:51:58,627 [main] DEBUG vladlitvin.parser.TariffParser - FOR_CALLS[здесьнебудетошибкиSMSPrice{withinNetwork="0.04";otherNetwork="0.07";otherCountry="1";}CallPrice{withinNetwork="0.04";otherNetwork="0.07";otherCountry="1";}InternetPrice{internet="0.04";}freeMinutes="600";tariffName="Безграничное_общение";subscriptionFee="20";];
+2017-03-30T23:51:58,642 [main] DEBUG vladlitvin.parser.UnitParser - 600
+2017-03-30T23:51:58,642 [main] DEBUG vladlitvin.parser.TariffParser - FOR_INTERNET[SMSPrice{withinNetwork="0.04";otherNetwork="0.07";otherCountry="1";}CallPrice{withinNetwork="0.04";otherNetwork="0.07";otherCountry="1";}InternetPrice{internet="0.04";}freeMegabytes="3000";tariffName="Гуглить_не_перегуглить";subscriptionFee="20";];
+2017-03-30T23:51:58,642 [main] DEBUG vladlitvin.parser.UnitParser - 3000
+2017-03-30T23:51:58,642 [main] DEBUG vladlitvin.parser.TariffParser - FOR_INTERNET[ошибочка];
+2017-03-30T23:51:58,642 [main] WARN vladlitvin.parser.TariffParser - Error add Tariff. class by.epam.vladlitvin.parser.PriceParser Illegal data format in "findCallPrice" method. 
+2017-03-30T23:51:58,642 [main] INFO vladlitvin.reader.FileReader - With file resources\clients.txtread: 
+Client [clientName="Владимир_Петрович";tariffName ="Для_умного_дома";];Client [clientName="Макс";tariffName ="Для_умного_дома";];Client [clientName="Лёша";tariffName ="ГугЛить_не_перегуглить";];Client [clientName="Влад";tariffName ="Безграничное_общение";];

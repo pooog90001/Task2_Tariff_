@@ -1,0 +1,64 @@
+FOR_SMS [ здесь всё будет хорошо
+         SMSPrice {
+                   withinNetwork = "0.04";
+                   otherNetwork = "0.07";
+                   otherCountry = "1";
+         }
+         CallPrice {
+                    withinNetwork = "0.04";
+                    otherNetwork = "0.07";
+                    otherCountry = "1";
+         }
+         InternetPrice {
+                        internet = "0.04";
+         }
+         freeSMS = "2000";tariffName = "Для_умного_дома";subscriptionFee = "10";
+        ];
+
+
+        FOR_SMS [ здесь должна быть ошибка
+                 SMSPrice {
+                           withinNetwork = "0.04";
+                           otherNetwork = "0.07";
+                           otherCountry = "1";
+                 }];
+FOR_CALLS [ здесь не будет ошибки
+         SMSPrice {
+                   withinNetwork = "0.04";
+                   otherNetwork = "0.07";
+                   otherCountry = "1";
+         }
+         CallPrice {
+                    withinNetwork = "0.04";
+                    otherNetwork = "0.07";
+                    otherCountry = "1";
+         }
+         InternetPrice {
+                        internet = "0.04";
+         }
+         freeMinutes = "600";
+         tariffName = "Безграничное_общение";
+         subscriptionFee = "20";
+        ];
+FOR_INTERNET [
+         SMSPrice {
+                   withinNetwork = "0.04";
+                   otherNetwork = "0.07";
+                   otherCountry = "1";
+         }
+         CallPrice {
+                    withinNetwork = "0.04";
+                    otherNetwork = "0.07";
+                    otherCountry = "1";
+         }
+         InternetPrice {
+                        internet = "0.04";
+         }
+         freeMegabytes = "3000";
+         tariffName = "Гуглить_не_перегуглить";
+         subscriptionFee = "20";
+        ];
+
+FOR_INTERNET [
+        ошибочка
+        ];

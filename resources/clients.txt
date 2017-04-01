@@ -1,0 +1,16 @@
+Client [
+  clientName="Владимир_Петрович";
+  tariffName ="Для_умного_дома";
+  ];
+  Client [
+    clientName="Макс";
+    tariffName ="Для_умного_дома";
+    ];
+    Client [
+      clientName="Лёша";
+      tariffName ="ГугЛить_не_перегуглить";
+      ];
+      Client [
+        clientName="Влад";
+        tariffName ="Безграничное_общение";
+        ];
