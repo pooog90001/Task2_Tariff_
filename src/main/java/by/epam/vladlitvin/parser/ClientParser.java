@@ -21,6 +21,8 @@ import static by.epam.vladlitvin.action.TariffFinder.*;
 public class ClientParser {
     private final static Logger LOGGER = LogManager.getLogger();
     private final static String CLIENT_REGEX = "Client\\[.+?\\];";
+    private static final String CLIENT_NAME = "clientName";
+    private static final String TARIFF_NAME = "tariffName";
 
     public static ArrayList<Client> findClients(String inPut,
                                                 ArrayList<AbstractTariff> tariffs){
@@ -33,8 +35,8 @@ public class ClientParser {
             String string = matcher.group();
 
             try {
-                String clientName = findClientName(string);
-                String tariffName = findTariffName(string);
+                String clientName = findStringParameter(string, CLIENT_NAME);
+                String tariffName = findStringParameter(string, TARIFF_NAME);
                 AbstractTariff tariff = findTariffByName(tariffs, tariffName);
 
                 if (tariff != null) {

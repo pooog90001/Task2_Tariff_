@@ -12,12 +12,19 @@ import java.util.regex.Pattern;
 import static by.epam.vladlitvin.parser.UnitParser.*;
 
 /**
- * Created by vlad_ on 3/28/2017.
+ * Class for Tariff price parsing.
  */
 class PriceParser {
     private static final String SMS_PRICE_REGEX = "SMSPrice\\{.+?}";
     private static final String СALL_PRICE_REGEX = "CallPrice\\{.+?}";
     private static final String INTERNET_PRICE_REGEX = "InternetPrice\\{.+?}";
+
+    private static final String INTERNET = "internet";
+    private static final String WITHIN_NETWORK = "withinNetwork";
+    private static final String OTHER_NETWORK = "otherNetwork";
+    private static final String OTHER_COUNTRY = "otherCountry";
+
+
 
     static SMSPrice findSMSPrice(String inPut) throws TariffParseException, ValueLessZeroException {
         Pattern pattern = Pattern.compile(SMS_PRICE_REGEX);
@@ -27,10 +34,10 @@ class PriceParser {
 
             if (matcher.find()) {
                 String smsPrice = matcher.group();
-                BigDecimal withingNetwork = findWithinNetwork(smsPrice);
-                BigDecimal otherNetwork = findOtherNetwork(smsPrice);
-                BigDecimal otherCountry = findOtherCountry(smsPrice);
-                result = new SMSPrice(withingNetwork,
+                BigDecimal withinNetwork = findBigDecimalParameter(smsPrice, WITHIN_NETWORK);
+                BigDecimal otherNetwork = findBigDecimalParameter(smsPrice, OTHER_NETWORK);
+                BigDecimal otherCountry = findBigDecimalParameter(smsPrice, OTHER_COUNTRY);
+                result = new SMSPrice(withinNetwork,
                         otherNetwork, otherCountry);
             } else {
                 throw new TariffParseException(PriceParser.class + " Illegal data format in \"findSMSPrice\" method");
@@ -50,10 +57,10 @@ class PriceParser {
 
             if (matcher.find()) {
                 String callPrice = matcher.group();
-                BigDecimal withingNetwork = findWithinNetwork(callPrice);
-                BigDecimal otherNetwork = findOtherNetwork(callPrice);
-                BigDecimal otherCountry = findOtherCountry(callPrice);
-                result = new CallPrice(withingNetwork,
+                BigDecimal withinNetwork = findBigDecimalParameter(callPrice, WITHIN_NETWORK);
+                BigDecimal otherNetwork = findBigDecimalParameter(callPrice, OTHER_NETWORK);
+                BigDecimal otherCountry = findBigDecimalParameter(callPrice, OTHER_COUNTRY);
+                result = new CallPrice(withinNetwork,
                         otherNetwork, otherCountry);
 
             } else {
@@ -74,7 +81,7 @@ class PriceParser {
 
             if (matcher.find()) {
                 String internetPrice = matcher.group();
-                BigDecimal internet = findInternet(internetPrice);
+                BigDecimal internet = findBigDecimalParameter(internetPrice, INTERNET);
                 result = new InternetPrice(internet);
 
             } else {

@@ -24,7 +24,7 @@ import static by.epam.vladlitvin.parser.UnitParser.*;
 import static by.epam.vladlitvin.parser.PriceParser.*;
 
 /**
- * Created by vlad_ on 3/27/2017.
+ * Class for Tariff persing.
  */
 public class TariffParser {
     private final static Logger LOGGER = LogManager.getLogger();
@@ -32,6 +32,12 @@ public class TariffParser {
     private final static String CALLS_TARIFF_REGEX = "FOR_CALLS\\[.+?\\];";
     private final static String SMS_TARIFF_REGEX = "FOR_SMS\\[.+?\\];";
     private final static String INTERNET_TARIFF_REGEX = "FOR_INTERNET\\[.+?\\];";
+    private static final String FREE_MEGABYTES = "freeMegabytes";
+    private static final String FREE_MINUTES = "freeMinutes";
+    private static final String FREE_SMS = "freeSMS";
+    private static final String SUBSCRIPTION_FEE = "subscriptionFee";
+    private static final String TARIFF_NAME = "tariffName";
+
 
     public static ArrayList<AbstractTariff> tariffParse(String inPut){
         String line = removeSpaces(inPut);
@@ -66,9 +72,9 @@ public class TariffParser {
         CallPrice callPrice = findCallPrice(inPut);
         SMSPrice smsPrice = findSMSPrice(inPut);
         InternetPrice internetPrice = findInternetPrice(inPut);
-        String name = findTariffName(inPut);
-        int freeMinutes = findFreeMinutes(inPut);
-        BigDecimal subscriptionFee = findSubscriptionFee(inPut);
+        String name = findStringParameter(inPut, TARIFF_NAME);
+        int freeMinutes = findIntegerParameter(inPut, FREE_MINUTES);
+        BigDecimal subscriptionFee = findBigDecimalParameter(inPut, SUBSCRIPTION_FEE);
         CallTariffFactory factory = new CallTariffFactory();
         return factory.createInstance(callPrice, internetPrice,
                 smsPrice, name, subscriptionFee, freeMinutes);
@@ -83,9 +89,9 @@ public class TariffParser {
         CallPrice callPrice = findCallPrice(inPut);
         SMSPrice smsPrice = findSMSPrice(inPut);
         InternetPrice internetPrice = findInternetPrice(inPut);
-        String name = findTariffName(inPut);
-        int freeSMS = findFreeSMS(inPut);
-        BigDecimal subscriptionFee = findSubscriptionFee(inPut);
+        String name = findStringParameter(inPut, TARIFF_NAME);
+        int freeSMS = findIntegerParameter(inPut, FREE_SMS);
+        BigDecimal subscriptionFee = findBigDecimalParameter(inPut, SUBSCRIPTION_FEE);
         SMSTariffFactory factory = new SMSTariffFactory();
         return factory.createInstance(callPrice, internetPrice,
                 smsPrice, name, subscriptionFee, freeSMS);
@@ -98,9 +104,9 @@ public class TariffParser {
         CallPrice callPrice = findCallPrice(inPut);
         SMSPrice smsPrice = findSMSPrice(inPut);
         InternetPrice internetPrice = findInternetPrice(inPut);
-        String name = findTariffName(inPut);
-        int freeMegabytes = findFreeMegabytes(inPut);
-        BigDecimal subscriptionFee = findSubscriptionFee(inPut);
+        String name = findStringParameter(inPut, TARIFF_NAME);
+        int freeMegabytes = findIntegerParameter(inPut, FREE_MEGABYTES);
+        BigDecimal subscriptionFee = findBigDecimalParameter(inPut, SUBSCRIPTION_FEE);
         InternetTariffFactory factory = new InternetTariffFactory();
         return factory.createInstance(callPrice, internetPrice,
                 smsPrice, name, subscriptionFee, freeMegabytes);
