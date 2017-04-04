@@ -30,9 +30,9 @@ public class InternetPrice {
 
     @Override
     public String toString() {
-        return "InternetPrice{" +
-                "internet=" + internet +
-                '}';
+        return "InternetPrice {\n" +
+                " internet = " + internet +
+                "ruble \n}";
     }
 
     @Override

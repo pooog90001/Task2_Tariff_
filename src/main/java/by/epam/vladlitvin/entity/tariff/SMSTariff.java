@@ -12,7 +12,6 @@ import java.math.BigDecimal;
  * Created by vlad_ on 3/26/2017.
  */
 public class SMSTariff extends AbstractTariff {
-    public static final TypeTariff typeTariff = TypeTariff.FOR_SMS;
     private int freeSMS;
 
     public SMSTariff(String name, CallPrice callPrice,
@@ -21,7 +20,7 @@ public class SMSTariff extends AbstractTariff {
                      BigDecimal subscriptionFee,
                      int freeSMS) throws ValueLessZeroException {
         super(name, callPrice, internetPrice,
-                messagePrice, subscriptionFee);
+                messagePrice, subscriptionFee, TypeTariff.FOR_SMS);
 
         if (freeSMS >= 0) {
             this.freeSMS = freeSMS;
@@ -29,5 +28,36 @@ public class SMSTariff extends AbstractTariff {
             throw new ValueLessZeroException();
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "\nSMSTariff { " + super.toString() +
+                "\n freeSMS=" + freeSMS +
+                "\n}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof SMSTariff)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        SMSTariff smsTariff = (SMSTariff) o;
+
+        return freeSMS == smsTariff.freeSMS;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + freeSMS;
+        return result;
     }
 }

@@ -4,6 +4,7 @@ package by.epam.vladlitvin.exception;
  * Created by vlad_ on 3/26/2017.
  */
 public class ValueLessZeroException extends Exception {
+
     public ValueLessZeroException() {
         super();
     }

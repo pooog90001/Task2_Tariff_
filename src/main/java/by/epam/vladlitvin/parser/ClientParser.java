@@ -19,8 +19,8 @@ import static by.epam.vladlitvin.action.TariffFinder.*;
  * Created by vlad_ on 3/30/2017.
  */
 public class ClientParser {
-    private final static String CLIENT_REGEX = "Client\\[.+?\\];";
     private final static Logger LOGGER = LogManager.getLogger();
+    private final static String CLIENT_REGEX = "Client\\[.+?\\];";
 
     public static ArrayList<Client> findClients(String inPut,
                                                 ArrayList<AbstractTariff> tariffs){
@@ -44,7 +44,7 @@ public class ClientParser {
                 }
 
             } catch (TariffParseException e) {
-                LOGGER.log(Level.WARN,"Error create Client. " + e.getMessage());
+                LOGGER.log(Level.ERROR,"Error create Client. " + e.getMessage());
             }
         }
         return clients;

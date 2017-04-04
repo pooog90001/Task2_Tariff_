@@ -12,7 +12,6 @@ import java.math.BigDecimal;
  * Created by vlad_ on 3/26/2017.
  */
 public class InternetTariff extends AbstractTariff {
-    public static final TypeTariff typeTariff = TypeTariff.FOR_INTERNET;
     private int freeMegabytes;
 
     public InternetTariff(String name, CallPrice callPrice,
@@ -21,12 +20,44 @@ public class InternetTariff extends AbstractTariff {
                           BigDecimal subscriptionFee,
                           int freeMegabytes) throws ValueLessZeroException {
 
-        super(name, callPrice, internetPrice, messagePrice, subscriptionFee);
+        super(name, callPrice, internetPrice, messagePrice,
+                subscriptionFee, TypeTariff.FOR_INTERNET);
 
         if (freeMegabytes >= 0) {
             this.freeMegabytes = freeMegabytes;
         } else {
             throw new ValueLessZeroException();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "\nInternetTariff { " + super.toString() +
+                ",\n freeMegabytes=" + freeMegabytes +
+                "\n}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof InternetTariff)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        InternetTariff that = (InternetTariff) o;
+
+        return freeMegabytes == that.freeMegabytes;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + freeMegabytes;
+        return result;
     }
 }

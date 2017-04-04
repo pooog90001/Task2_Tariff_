@@ -13,11 +13,8 @@ import java.math.BigDecimal;
  */
 public abstract class AbstractTariffFactory<T extends AbstractTariff> {
 
-    public abstract  T createInstance(CallPrice callPrice,
-                                      InternetPrice inetPrice,
-                                      SMSPrice smsPrice,
-                                      String name,
-                                      BigDecimal subscriptionFee,
+    public abstract  T createInstance(CallPrice callPrice, InternetPrice inetPrice,
+                                      SMSPrice smsPrice, String name, BigDecimal subscriptionFee,
                                       int param) throws ValueLessZeroException;
 
 

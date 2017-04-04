@@ -14,10 +14,8 @@ import java.math.BigDecimal;
 public class CallTariffFactory extends AbstractTariffFactory<CallTariff> {
 
     @Override
-    public CallTariff createInstance(CallPrice callPrice,
-                                     InternetPrice inetPrice,
-                                     SMSPrice smsPrice,
-                                     String name,
+    public CallTariff createInstance(CallPrice callPrice, InternetPrice inetPrice,
+                                     SMSPrice smsPrice, String name,
                                      BigDecimal subscriptionFee,
                                      int param) throws ValueLessZeroException {
         return new CallTariff(name, callPrice, inetPrice,

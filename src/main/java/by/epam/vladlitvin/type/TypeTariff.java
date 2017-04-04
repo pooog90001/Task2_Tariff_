@@ -6,5 +6,10 @@ package by.epam.vladlitvin.type;
 public enum TypeTariff {
     FOR_CALLS,
     FOR_INTERNET,
-    FOR_SMS,
+    FOR_SMS,;
+
+    @Override
+    public String toString() {
+        return this.name();
+    }
 }

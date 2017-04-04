@@ -7,18 +7,19 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
 
 /**
  * Created by vlad_ on 3/18/2017.
  */
-public class FileReader {
-    private final static Logger LOGGER = LogManager.getLogger(FileReader.class.getName());
+public class TariffFileReader {
+    private final static Logger LOGGER = LogManager.getLogger(TariffFileReader.class.getName());
 
     public static String readFile(String fileName) throws FileReadException {
         StringBuilder stringBuilder = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader( new java.io.FileReader(fileName))){
+        try (BufferedReader reader = new BufferedReader( new FileReader(fileName))){
             reader.lines().forEach(s -> stringBuilder.append(s.trim()));
             LOGGER.log(Level.INFO,"With file " + fileName + "read: \n"
                      + stringBuilder.toString());

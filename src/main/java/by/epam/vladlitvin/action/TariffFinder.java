@@ -8,6 +8,8 @@ import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import static by.epam.vladlitvin.action.PriceRounder.*;
+
 /**
  * Created by vlad_ on 3/30/2017.
  */
@@ -34,12 +36,12 @@ public class TariffFinder {
             (ArrayList<AbstractTariff> tariffs , BigDecimal internetPrice) {
 
         Iterator<AbstractTariff> iterator = tariffs.listIterator();
-        internetPrice = internetPrice.round(new MathContext(6)); // это волшебные числа??
+        internetPrice = roundBySix(internetPrice);
 
         while (iterator.hasNext()) {
             AbstractTariff tariff = iterator.next();
             BigDecimal price = tariff.getInternetPrice().getInternet();
-            price = price.round(new MathContext(6));
+            price = roundBySix(price);
 
             if (internetPrice.compareTo(price) == 0) {
                 return tariff;

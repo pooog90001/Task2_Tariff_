@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
  * Created by vlad_ on 3/28/2017.
  */
 class UnitParser {
+    private final static Logger LOGGER = LogManager.getLogger();
     private static final String INTERNET_REGEX = "internet=\".+?\";";
     private static final String WITHIN_NETWORK_REGEX = "withinNetwork=\".+?\";";
     private static final String OTHER_NETWORK_REGEX = "otherNetwork=\".+?\";";
@@ -26,9 +27,8 @@ class UnitParser {
     private static final String INTEGER_REGEX = "\\d{1,6}";
     private static final String BIG_DECIMAL_REGEX = "(\\d{1,6})(\\.\\d{1,6})?";
     private static final String STRING_REGEX = "\".+?\"";
-    private final static String SPACE_REGEX ="\\s+";
 
-    private final static Logger LOGGER = LogManager.getLogger();
+    private final static String SPACE_REGEX ="\\s+";
 
     static String removeSpaces(String inPut) {
         String[] strings = inPut.split(SPACE_REGEX);
@@ -246,7 +246,7 @@ class UnitParser {
 
         if(matcher.find()) {
             String string = matcher.group();
-            string = string.substring(1, string.length()-1); // это волшебные числа??
+            string = string.substring(1, (string.length() - 1));
             String[] words = string.split("_");
             for (String word: words) {
                 result.append(word + " ");

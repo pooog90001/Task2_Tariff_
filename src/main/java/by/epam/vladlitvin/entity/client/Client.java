@@ -33,9 +33,9 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "clientName='" + clientName + '\'' +
-                ", tariff=" + tariff +
+        return "Client {" +
+                "clientName = '" + clientName + '\'' +
+                ", tariff = " + tariff +
                 '}';
     }
 

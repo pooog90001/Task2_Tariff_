@@ -27,11 +27,11 @@ import static by.epam.vladlitvin.parser.PriceParser.*;
  * Created by vlad_ on 3/27/2017.
  */
 public class TariffParser {
+    private final static Logger LOGGER = LogManager.getLogger();
     private final static String TARIFF_REGEX = "FOR_(SMS|CALLS|INTERNET)\\[.+?\\];";
     private final static String CALLS_TARIFF_REGEX = "FOR_CALLS\\[.+?\\];";
     private final static String SMS_TARIFF_REGEX = "FOR_SMS\\[.+?\\];";
     private final static String INTERNET_TARIFF_REGEX = "FOR_INTERNET\\[.+?\\];";
-    private final static Logger LOGGER = LogManager.getLogger();
 
     public static ArrayList<AbstractTariff> tariffParse(String inPut){
         String line = removeSpaces(inPut);

@@ -23,7 +23,7 @@ public class SMSPrice {
                 (otherNetwork.compareTo(new BigDecimal("0")) >= 0) &&
                 (otherCountry.compareTo(new BigDecimal("0")) >= 0)) {
             this.withinNetwork = roundBySix(withinNetwork);
-            this.otherNetwork = roundBySix(otherNetwork); // так можно делать?
+            this.otherNetwork = roundBySix(otherNetwork);
             this.otherCountry = roundBySix(otherCountry);
         } else {
             throw new ValueLessZeroException();
@@ -44,11 +44,11 @@ public class SMSPrice {
 
     @Override
     public String toString() {
-        return "SMSPrice{\n" +
-                "withinNetwork = " + withinNetwork +
-                "ruble,\notherNetwork = " + otherNetwork +
-                "ruble,\notherCountry = " + otherCountry +
-                "ruble\n}";
+        return "SMSPrice {\n" +
+                " withinNetwork = " + withinNetwork +
+                "ruble,\n otherNetwork = " + otherNetwork +
+                "ruble,\n otherCountry = " + otherCountry +
+                "ruble\n }";
     }
 
     @Override

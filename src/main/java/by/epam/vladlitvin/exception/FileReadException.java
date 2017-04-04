@@ -4,6 +4,7 @@ package by.epam.vladlitvin.exception;
  * Created by vlad_ on 3/21/2017.
  */
 public class FileReadException extends Exception {
+
     public FileReadException() {
         super();
     }
