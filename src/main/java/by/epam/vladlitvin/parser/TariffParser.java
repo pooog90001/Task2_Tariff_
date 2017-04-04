@@ -27,6 +27,7 @@ import static by.epam.vladlitvin.parser.PriceParser.*;
  * Class for Tariff persing.
  */
 public class TariffParser {
+
     private final static Logger LOGGER = LogManager.getLogger();
     private final static String TARIFF_REGEX = "FOR_(SMS|CALLS|INTERNET)\\[.+?\\];";
     private final static String CALLS_TARIFF_REGEX = "FOR_CALLS\\[.+?\\];";
