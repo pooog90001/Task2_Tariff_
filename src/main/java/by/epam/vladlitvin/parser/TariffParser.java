@@ -57,9 +57,11 @@ public class TariffParser {
                     tariffs.add(findInternetTariff(string));
                 }
             } catch (TariffParseException e) {
-                LOGGER.log(Level.ERROR,"Can't find correct data for create Tariff " + e.toString());
+                LOGGER.log(Level.ERROR,"Can't find correct " +
+                        "data for create Tariff " + e.toString());
             } catch (ValueLessZeroException e) {
-                LOGGER.log(Level.ERROR,"Can't create Tariff. Number less zero. " + e.toString());
+                LOGGER.log(Level.ERROR,"Can't create Tariff. " +
+                        "Number less zero. " + e.toString());
             }
         }
         return tariffs;

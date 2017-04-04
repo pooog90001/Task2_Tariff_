@@ -18,7 +18,6 @@ class PriceParser {
     private static final String SMS_PRICE_REGEX = "SMSPrice\\{.+?}";
     private static final String СALL_PRICE_REGEX = "CallPrice\\{.+?}";
     private static final String INTERNET_PRICE_REGEX = "InternetPrice\\{.+?}";
-
     private static final String INTERNET = "internet";
     private static final String WITHIN_NETWORK = "withinNetwork";
     private static final String OTHER_NETWORK = "otherNetwork";
@@ -40,10 +39,12 @@ class PriceParser {
                 result = new SMSPrice(withinNetwork,
                         otherNetwork, otherCountry);
             } else {
-                throw new TariffParseException(PriceParser.class + " Illegal data format in \"findSMSPrice\" method");
+                throw new TariffParseException(PriceParser.class + " Illegal data " +
+                        "format in \"findSMSPrice\" method");
             }
             if (matcher.find()) {
-                throw new TariffParseException(PriceParser.class + " Can be only one \"SMSPrice\" class");
+                throw new TariffParseException(PriceParser.class + " Can be only one " +
+                        "\"SMSPrice\" class");
             }
 
         return result;
@@ -64,10 +65,12 @@ class PriceParser {
                         otherNetwork, otherCountry);
 
             } else {
-                throw new TariffParseException(PriceParser.class + " Illegal data format in \"findCallPrice\" method. ");
+                throw new TariffParseException(PriceParser.class + " Illegal data " +
+                        "format in \"findCallPrice\" method. ");
             }
             if (matcher.find()) {
-                throw new TariffParseException(PriceParser.class + "Can be only one \"CallPrice\" class. ");
+                throw new TariffParseException(PriceParser.class + "Can be only one " +
+                        "\"CallPrice\" class. ");
             }
 
         return result;
@@ -85,10 +88,12 @@ class PriceParser {
                 result = new InternetPrice(internet);
 
             } else {
-                throw new TariffParseException(PriceParser.class + " Illegal data format in \"findInternetPrice\" method");
+                throw new TariffParseException(PriceParser.class + " Illegal data " +
+                        "format in \"findInternetPrice\" method");
             }
             if (matcher.find()) {
-                throw new TariffParseException(PriceParser.class + " Can be only one \"InternetPrice\" class");
+                throw new TariffParseException(PriceParser.class + " Can be only one " +
+                        "\"InternetPrice\" class");
             }
 
         return result;
