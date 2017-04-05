@@ -18,15 +18,12 @@ public class SMSTariff extends AbstractTariff {
                      InternetPrice internetPrice,
                      SMSPrice messagePrice,
                      BigDecimal subscriptionFee,
-                     int freeSMS) throws ValueLessZeroException {
+                     int freeSMS) {
         super(name, callPrice, internetPrice,
                 messagePrice, subscriptionFee, TypeTariff.FOR_SMS);
 
-        if (freeSMS >= 0) {
-            this.freeSMS = freeSMS;
-        } else {
-            throw new ValueLessZeroException();
-        }
+        this.freeSMS = freeSMS;
+
 
     }
 

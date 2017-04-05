@@ -18,16 +18,13 @@ public class InternetTariff extends AbstractTariff {
                           InternetPrice internetPrice,
                           SMSPrice messagePrice,
                           BigDecimal subscriptionFee,
-                          int freeMegabytes) throws ValueLessZeroException {
+                          int freeMegabytes) {
 
         super(name, callPrice, internetPrice, messagePrice,
                 subscriptionFee, TypeTariff.FOR_INTERNET);
 
-        if (freeMegabytes >= 0) {
-            this.freeMegabytes = freeMegabytes;
-        } else {
-            throw new ValueLessZeroException();
-        }
+        this.freeMegabytes = freeMegabytes;
+
     }
 
     @Override

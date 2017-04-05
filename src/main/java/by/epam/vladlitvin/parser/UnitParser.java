@@ -1,5 +1,6 @@
 package by.epam.vladlitvin.parser;
 
+import by.epam.vladlitvin.action.NumberValidator;
 import by.epam.vladlitvin.exception.TariffParseException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -8,6 +9,8 @@ import org.apache.logging.log4j.Logger;
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static by.epam.vladlitvin.action.NumberValidator.*;
 
 /**
  * Class for parsing Tariff and Client parameters.
@@ -95,9 +98,10 @@ class UnitParser {
         } else {
             throw new TariffParseException(UnitParser.class
                     + " Illegal data format in \"findBigDecimal\" method");
-        } if (matcher.find()) {
+        } if (matcher.find() || !bigDecimalValid(result)) {
             throw new TariffParseException(UnitParser.class
-                    + "\"findBigDecimal\" method. Can be only one real number in quotes");
+                    + "\"findBigDecimal\" method. Can be only one real number" +
+                    " in quotes or value can be upper then 0 ");
         }
         return result;
     }
@@ -114,9 +118,10 @@ class UnitParser {
         } else {
             throw new TariffParseException(UnitParser.class
                     + " Illegal data format in \"findInteger\" method" );
-        } if (matcher.find()) {
+        } if (matcher.find() || !integerValid(result)) {
             throw new TariffParseException(UnitParser.class
-                    + " \"findInteger\" method. Can be only one integer number in quotes");
+                    + " \"findInteger\" method. Can be only one integer" +
+                    " number in quotes or value can be upper then 0 ");
         }
         return result;
     }
@@ -130,6 +135,7 @@ class UnitParser {
             String string = matcher.group();
             string = string.substring(1, (string.length() - 1));
             String[] words = string.split("_");
+
             for (String word: words) {
                 result.append(word + " ");
             }
@@ -139,4 +145,5 @@ class UnitParser {
         }
         return result.toString();
     }
+
 }

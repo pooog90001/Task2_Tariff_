@@ -13,14 +13,8 @@ import static by.epam.vladlitvin.action.PriceRounder.roundBySix;
 public class InternetPrice {
     private BigDecimal internet;
 
-    public InternetPrice(BigDecimal internet) throws ValueLessZeroException {
-
-        if (internet.compareTo(new BigDecimal("0")) >= 0) {
-            this.internet = roundBySix(internet);
-        } else {
-            throw new ValueLessZeroException();
-        }
-
+    public InternetPrice(BigDecimal internet) {
+        this.internet = roundBySix(internet);
     }
 
     public BigDecimal getInternet() {

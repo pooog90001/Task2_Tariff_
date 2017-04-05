@@ -60,9 +60,6 @@ public class TariffParser {
             } catch (TariffParseException e) {
                 LOGGER.log(Level.ERROR,"Can't find correct " +
                         "data for create Tariff " + e.toString());
-            } catch (ValueLessZeroException e) {
-                LOGGER.log(Level.ERROR,"Can't create Tariff. " +
-                        "Number less zero. " + e.toString());
             }
         }
         return tariffs;
@@ -70,7 +67,7 @@ public class TariffParser {
 
 
     private static CallTariff findCallTariff(String inPut)
-            throws TariffParseException, ValueLessZeroException {
+            throws TariffParseException {
 
         CallPrice callPrice = findCallPrice(inPut);
         SMSPrice smsPrice = findSMSPrice(inPut);
@@ -85,7 +82,7 @@ public class TariffParser {
     }
 
     private static SMSTariff findSMSTariff(String inPut)
-            throws TariffParseException, ValueLessZeroException {
+            throws TariffParseException {
 
 
         LOGGER.log(Level.DEBUG, inPut);
@@ -102,7 +99,7 @@ public class TariffParser {
     }
 
     private static InternetTariff findInternetTariff(String inPut)
-            throws TariffParseException, ValueLessZeroException {
+            throws TariffParseException {
 
         CallPrice callPrice = findCallPrice(inPut);
         SMSPrice smsPrice = findSMSPrice(inPut);

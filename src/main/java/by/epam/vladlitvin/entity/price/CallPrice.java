@@ -17,18 +17,11 @@ public class CallPrice {
 
     public CallPrice(BigDecimal withinNetwork,
                      BigDecimal otherNetwork,
-                     BigDecimal otherCountry) throws ValueLessZeroException {
+                     BigDecimal otherCountry) {
 
-        if ((withinNetwork.compareTo(new BigDecimal("0")) >= 0) &&
-                (otherNetwork.compareTo(new BigDecimal("0")) >= 0) &&
-                (otherCountry.compareTo(new BigDecimal("0")) >= 0)) {
-            this.withinNetwork = roundBySix(withinNetwork);
-            this.otherNetwork = roundBySix(otherNetwork);
-            this.otherCountry = roundBySix(otherCountry);
-        } else {
-            throw new ValueLessZeroException();
-        }
-
+        this.withinNetwork = roundBySix(withinNetwork);
+        this.otherNetwork = roundBySix(otherNetwork);
+        this.otherCountry = roundBySix(otherCountry);
     }
 
     public BigDecimal getWithinNetwork() {

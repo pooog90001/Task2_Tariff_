@@ -16,18 +16,13 @@ public class CallTariff extends AbstractTariff {
 
 
     public CallTariff(String name, CallPrice callPrice,
-                      InternetPrice internetPrice,
-                      SMSPrice messagePrice,
-                      BigDecimal subscriptionFee,
-                      int freeMinutes) throws ValueLessZeroException {
+                      InternetPrice internetPrice, SMSPrice messagePrice,
+                      BigDecimal subscriptionFee, int freeMinutes) {
         super(name, callPrice, internetPrice,
                 messagePrice, subscriptionFee, TypeTariff.FOR_CALLS);
 
-        if (freeMinutes >= 0) {
-            this.freeMinutes = freeMinutes;
-        } else {
-            throw new ValueLessZeroException();
-        }
+        this.freeMinutes = freeMinutes;
+
     }
 
     @Override

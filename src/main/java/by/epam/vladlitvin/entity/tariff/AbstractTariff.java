@@ -22,18 +22,13 @@ public abstract class AbstractTariff {
 
     public AbstractTariff(String name, CallPrice callPrice,
                           InternetPrice internetPrice, SMSPrice messagePrice,
-                          BigDecimal subscriptionFee, TypeTariff typeTariff) throws ValueLessZeroException {
-
-        if (subscriptionFee.compareTo(new BigDecimal("0")) >=  0) {
+                          BigDecimal subscriptionFee, TypeTariff typeTariff) {
             this.name = name;
             this.callPrice = callPrice;
             this.internetPrice = internetPrice;
             this.messagePrice = messagePrice;
             this.subscriptionFee = roundBySix(subscriptionFee);
             this.typeTariff = typeTariff;
-        } else {
-            throw new ValueLessZeroException();
-        }
     }
 
     public TypeTariff getTypeTariff() {

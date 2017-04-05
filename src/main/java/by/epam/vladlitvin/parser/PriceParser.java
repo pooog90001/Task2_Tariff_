@@ -4,7 +4,6 @@ import by.epam.vladlitvin.entity.price.CallPrice;
 import by.epam.vladlitvin.entity.price.InternetPrice;
 import by.epam.vladlitvin.entity.price.SMSPrice;
 import by.epam.vladlitvin.exception.TariffParseException;
-import by.epam.vladlitvin.exception.ValueLessZeroException;
 
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
@@ -25,7 +24,7 @@ class PriceParser {
 
 
 
-    static SMSPrice findSMSPrice(String inPut) throws TariffParseException, ValueLessZeroException {
+    static SMSPrice findSMSPrice(String inPut) throws TariffParseException {
         Pattern pattern = Pattern.compile(SMS_PRICE_REGEX);
         Matcher matcher = pattern.matcher(inPut);
         SMSPrice result;
@@ -50,7 +49,7 @@ class PriceParser {
         return result;
     }
 
-    static CallPrice findCallPrice(String inPut) throws TariffParseException, ValueLessZeroException {
+    static CallPrice findCallPrice(String inPut) throws TariffParseException {
         Pattern pattern = Pattern.compile(СALL_PRICE_REGEX);
         Matcher matcher = pattern.matcher(inPut);
         CallPrice result;
@@ -76,7 +75,7 @@ class PriceParser {
         return result;
     }
 
-    static InternetPrice findInternetPrice(String inPut) throws TariffParseException, ValueLessZeroException {
+    static InternetPrice findInternetPrice(String inPut) throws TariffParseException {
         Pattern pattern = Pattern.compile(INTERNET_PRICE_REGEX);
         Matcher matcher = pattern.matcher(inPut);
         InternetPrice result;

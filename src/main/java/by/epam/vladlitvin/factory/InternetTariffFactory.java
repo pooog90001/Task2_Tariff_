@@ -18,7 +18,7 @@ public class InternetTariffFactory extends AbstractTariffFactory<InternetTariff>
                                          SMSPrice smsPrice,
                                          String name,
                                          BigDecimal subscriptionFee,
-                                         int param) throws ValueLessZeroException {
+                                         int param) {
         return new InternetTariff(name, callPrice, inetPrice,
                 smsPrice, subscriptionFee, param);
     }

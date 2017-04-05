@@ -19,7 +19,7 @@ public class SMSTariffFactory extends AbstractTariffFactory<SMSTariff> {
                                     SMSPrice smsPrice,
                                     String name,
                                     BigDecimal subscriptionFee,
-                                    int param) throws ValueLessZeroException {
+                                    int param) {
         return new SMSTariff(name, callPrice, inetPrice,
                 smsPrice, subscriptionFee, param);
     }

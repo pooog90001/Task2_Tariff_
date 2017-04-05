@@ -33,8 +33,6 @@ public class ClientParserTest {
         ArrayList<AbstractTariff> tariffs = TariffParser.tariffParse
                 (readFile("resources\\tariffs.txt"));
         clients = findClients(readFile("resources\\clients.txt"), tariffs);
-        AbstractTariff tariff = TariffFinder.findTariffByInternetPrice(tariffs, new BigDecimal(0.040));
-
         assertThat(clients.size(), is(4));
     }
 

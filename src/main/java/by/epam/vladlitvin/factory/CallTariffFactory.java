@@ -17,7 +17,7 @@ public class CallTariffFactory extends AbstractTariffFactory<CallTariff> {
     public CallTariff createInstance(CallPrice callPrice, InternetPrice inetPrice,
                                      SMSPrice smsPrice, String name,
                                      BigDecimal subscriptionFee,
-                                     int param) throws ValueLessZeroException {
+                                     int param) {
         return new CallTariff(name, callPrice, inetPrice,
                 smsPrice, subscriptionFee, param);
 
