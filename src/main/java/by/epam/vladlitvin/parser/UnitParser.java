@@ -1,15 +1,12 @@
 package by.epam.vladlitvin.parser;
 
-import by.epam.vladlitvin.action.NumberValidator;
 import by.epam.vladlitvin.exception.TariffParseException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import static by.epam.vladlitvin.action.NumberValidator.*;
 
 /**

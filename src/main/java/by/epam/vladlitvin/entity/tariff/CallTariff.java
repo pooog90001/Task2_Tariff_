@@ -3,7 +3,6 @@ package by.epam.vladlitvin.entity.tariff;
 import by.epam.vladlitvin.entity.price.CallPrice;
 import by.epam.vladlitvin.entity.price.InternetPrice;
 import by.epam.vladlitvin.entity.price.SMSPrice;
-import by.epam.vladlitvin.exception.ValueLessZeroException;
 import by.epam.vladlitvin.type.TypeTariff;
 
 import java.math.BigDecimal;

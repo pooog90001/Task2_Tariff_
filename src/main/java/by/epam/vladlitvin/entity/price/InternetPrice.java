@@ -1,9 +1,6 @@
 package by.epam.vladlitvin.entity.price;
 
-import by.epam.vladlitvin.exception.ValueLessZeroException;
-
 import java.math.BigDecimal;
-import java.math.MathContext;
 
 import static by.epam.vladlitvin.action.PriceRounder.roundBySix;
 

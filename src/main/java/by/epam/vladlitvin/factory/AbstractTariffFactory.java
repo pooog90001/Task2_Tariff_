@@ -4,7 +4,6 @@ import by.epam.vladlitvin.entity.price.CallPrice;
 import by.epam.vladlitvin.entity.price.InternetPrice;
 import by.epam.vladlitvin.entity.price.SMSPrice;
 import by.epam.vladlitvin.entity.tariff.AbstractTariff;
-import by.epam.vladlitvin.exception.ValueLessZeroException;
 
 import java.math.BigDecimal;
 

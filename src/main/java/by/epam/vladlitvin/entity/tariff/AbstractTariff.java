@@ -1,13 +1,11 @@
 package by.epam.vladlitvin.entity.tariff;
 
-import by.epam.vladlitvin.exception.ValueLessZeroException;
 import by.epam.vladlitvin.type.TypeTariff;
 import by.epam.vladlitvin.entity.price.InternetPrice;
 import by.epam.vladlitvin.entity.price.CallPrice;
 import by.epam.vladlitvin.entity.price.SMSPrice;
 import static by.epam.vladlitvin.action.PriceRounder.*;
 import java.math.BigDecimal;
-import java.math.MathContext;
 
 /**
  * Created by vlad_ on 3/25/2017.

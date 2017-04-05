@@ -9,7 +9,6 @@ import by.epam.vladlitvin.entity.tariff.InternetTariff;
 import by.epam.vladlitvin.entity.tariff.SMSTariff;
 import by.epam.vladlitvin.entity.tariff.CallTariff;
 import by.epam.vladlitvin.exception.TariffParseException;
-import by.epam.vladlitvin.exception.ValueLessZeroException;
 import by.epam.vladlitvin.factory.CallTariffFactory;
 import by.epam.vladlitvin.factory.InternetTariffFactory;
 import by.epam.vladlitvin.factory.SMSTariffFactory;
