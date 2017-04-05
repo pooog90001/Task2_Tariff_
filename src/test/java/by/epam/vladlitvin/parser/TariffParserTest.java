@@ -3,6 +3,7 @@ package by.epam.vladlitvin.parser;
 import by.epam.vladlitvin.action.TariffFinder;
 import by.epam.vladlitvin.entity.client.Client;
 import by.epam.vladlitvin.entity.tariff.AbstractTariff;
+import by.epam.vladlitvin.exception.FileReadException;
 import by.epam.vladlitvin.reader.TariffFileReader;
 
 import static by.epam.vladlitvin.reader.TariffFileReader.*;
@@ -30,14 +31,14 @@ public class TariffParserTest {
     }
 
     @Test
-    public void tariffParseOne() throws Exception {
+    public void tariffParseOne() throws FileReadException {
         tariffs = TariffParser.tariffParse
                 (readFile("resources\\tariffs.txt"));
         assertThat(tariffs.size(), is(3));
     }
 
     @Test
-    public void tariffParseTwo() throws Exception {
+    public void tariffParseTwo() {
         tariffs = TariffParser.tariffParse ("FOFD");
         assertThat(tariffs.size(), is(0));
     }

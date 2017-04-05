@@ -29,27 +29,27 @@ public class TariffFinderTest {
     }
 
     @Test
-    public void findTariffByName1() throws Exception {
+    public void findTariffByName1() {
         AbstractTariff expectedTatiff = tariffs.get(0);
         AbstractTariff tariff = TariffFinder.findTariffByName(tariffs,"для умнОГо дома");
         assertThat(tariff, is(expectedTatiff));
     }
 
     @Test
-    public void findTariffByName() throws Exception {
+    public void findTariffByName() {
         AbstractTariff tariff = TariffFinder.findTariffByName(tariffs,"для умghjgjного дома");
         assertThat(tariff, is(nullValue()));
     }
 
     @Test
-    public void findTariffByInternetPrice1() throws Exception {
+    public void findTariffByInternetPrice1() {
         AbstractTariff expectedTatiff = tariffs.get(0);
         AbstractTariff tariff = TariffFinder.findTariffByInternetPrice(tariffs, new BigDecimal("0.04"));
         assertThat(tariff, is(expectedTatiff));
     }
 
     @Test
-    public void findTariffByInternetPrice() throws Exception {
+    public void findTariffByInternetPrice() {
         AbstractTariff tariff = TariffFinder.findTariffByInternetPrice(tariffs,new BigDecimal("0.3"));
         assertThat(tariff, is(nullValue()));
     }
