@@ -1,17 +1,15 @@
-package EpamTasks;
+package by.epam.vladlitvin.main;
 
 import by.epam.vladlitvin.action.TariffFinderTest;
 import by.epam.vladlitvin.parser.ClientParserTest;
 import by.epam.vladlitvin.parser.TariffParserTest;
 import by.epam.vladlitvin.reader.TariffFileReaderTest;
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * Unit test for simple App.
+ * Created by vlad_ on 4/5/2017.
  */
 @Suite.SuiteClasses({TariffFinderTest.class,
         ClientParserTest.class,
